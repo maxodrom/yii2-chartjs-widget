@@ -21,12 +21,12 @@ set.
 Either run
 
 ```
-composer require 2amigos/yii2-chartjs-widget:~2.0
+composer require maxodrom/yii2-chartjs-widget:dev-master
 ```
 or add
 
 ```json
-"2amigos/yii2-chartjs-widget" : "~2.0"
+"maxodrom/yii2-chartjs-widget": "dev-master"
 ```
 
 to the require section of your application's `composer.json` file.
@@ -49,14 +49,14 @@ The following types are supported:
 The following example is using the `Line` type of chart. Please, check [ChartJs plugin](http://www.chartjs.org/docs/) 
 documentation for the different types supported by the plugin.
 
-```
+```php
 use dosamigos\chartjs\ChartJs;
 
 <?= ChartJs::widget([
     'type' => 'line',
     'options' => [
         'height' => 400,
-        'width' => 400
+        'width' => 400,
     ],
     'data' => [
         'labels' => ["January", "February", "March", "April", "May", "June", "July"],
@@ -69,7 +69,7 @@ use dosamigos\chartjs\ChartJs;
                 'pointBorderColor' => "#fff",
                 'pointHoverBackgroundColor' => "#fff",
                 'pointHoverBorderColor' => "rgba(179,181,198,1)",
-                'data' => [65, 59, 90, 81, 56, 55, 40]
+                'data' => [65, 59, 90, 81, 56, 55, 40],
             ],
             [
                 'label' => "My Second dataset",
@@ -79,15 +79,17 @@ use dosamigos\chartjs\ChartJs;
                 'pointBorderColor' => "#fff",
                 'pointHoverBackgroundColor' => "#fff",
                 'pointHoverBorderColor' => "rgba(255,99,132,1)",
-                'data' => [28, 48, 40, 19, 96, 27, 100]
-            ]
-        ]
-    ]
+                'data' => [28, 48, 40, 19, 96, 27, 100],
+            ],
+        ],
+    ],
 ]);
 ?>
 ```
+
 Plugins usage example (displaying percentages on the Pie Chart):
-```
+
+```php
 echo ChartJs::widget([
     'type' => 'pie',
     'id' => 'structurePie',
@@ -103,19 +105,19 @@ echo ChartJs::widget([
                 'data' => ['35.6', '17.5', '46.9'], // Your dataset
                 'label' => '',
                 'backgroundColor' => [
-                        '#ADC3FF',
-                        '#FF9A9A',
+                    '#ADC3FF',
+                    '#FF9A9A',
                     'rgba(190, 124, 145, 0.8)'
                 ],
                 'borderColor' =>  [
-                        '#fff',
-                        '#fff',
-                        '#fff'
+                    '#fff',
+                    '#fff',
+                    '#fff'
                 ],
                 'borderWidth' => 1,
                 'hoverBorderColor'=>["#999","#999","#999"],                
-            ]
-        ]
+            ],
+        ],
     ],
     'clientOptions' => [
         'legend' => [
@@ -124,17 +126,16 @@ echo ChartJs::widget([
             'labels' => [
                 'fontSize' => 14,
                 'fontColor' => "#425062",
-            ]
+            ],
         ],
         'tooltips' => [
             'enabled' => true,
-            'intersect' => true
+            'intersect' => true,
         ],
         'hover' => [
-            'mode' => false
+            'mode' => false,
         ],
         'maintainAspectRatio' => false,
-
     ],
     'plugins' =>
         new \yii\web\JsExpression('
